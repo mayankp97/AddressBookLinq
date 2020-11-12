@@ -50,7 +50,15 @@ namespace AddressBookLinq
                 Console.WriteLine("There is no such record in the Address Book!");
             }
         }
-
+        public void DeleteContact(string name)
+        {
+            var deleteRow = dataTable.AsEnumerable().Where(a => a.Field<string>("FirstName").Equals(name)).FirstOrDefault();
+            if (deleteRow != null)
+            {
+                deleteRow.Delete();
+                Console.WriteLine("Contact deleted successfully");
+            }
+        }
         public void DisplayData()
         {
             foreach (DataColumn col in dataTable.Columns)
@@ -67,5 +75,6 @@ namespace AddressBookLinq
                 Console.WriteLine();
             }
         }
+
     }
 }

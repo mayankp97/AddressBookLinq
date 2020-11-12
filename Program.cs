@@ -12,7 +12,8 @@ namespace AddressBookLinq
             addressBookDB.CreateAddressBook();
             addressBookDB.InsertValues();
             addressBookDB.DisplayData();
-            addressBookDB.EditContact();
+            //addressBookDB.EditContact();
+            addressBookDB.DeleteContact("Meena");
             addressBookDB.DisplayData();
 
         }
