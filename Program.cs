@@ -15,8 +15,10 @@ namespace AddressBookLinq
             //addressBookDB.EditContact();
             //addressBookDB.DeleteContact("Meena");
             //addressBookDB.DisplayData();
-            addressBookDB.RetrieveContactsByCity("cochi");
-            addressBookDB.RetrieveContactsByState("WB");
+            //addressBookDB.RetrieveContactsByCity("cochi");
+            //addressBookDB.RetrieveContactsByState("WB");
+            addressBookDB.CountByCity();
+            addressBookDB.CountByState();
 
         }
     }
