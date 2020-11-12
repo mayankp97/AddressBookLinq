@@ -115,6 +115,24 @@ namespace AddressBookLinq
                 Console.WriteLine(distinctState.State.PadRight(18) + distinctState.CountOfState);
             }
         }
+        public void RetrievAlbhabetically(string city)
+        {
+            Console.WriteLine("\nSorting Contacts By Name alphabetically for a given City :");
+            foreach (DataColumn col in dataTable.Columns)
+            {
+                Console.Write(col.ToString().PadRight(14));
+            }
+            Console.Write("\n");
+            var records = dataTable.AsEnumerable().Where(r => r.Field<string>("city") == city).OrderBy(r => r.Field<string>("FirstName")).ThenBy(r => r.Field<string>("LastName"));
+            foreach (DataRow row in records)
+            {
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    Console.Write(row[col].ToString().PadRight(14));
+                }
+                Console.Write("\n");
+            }
+        }
         public void DisplayData()
         {
             foreach (DataColumn col in dataTable.Columns)

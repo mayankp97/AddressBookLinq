@@ -9,16 +9,29 @@ namespace AddressBookLinq
             Console.WriteLine("Welcome to address book system Linq");
 
             var addressBookDB = new AddressBookDBL();
+            //Creating And inserting values in Table
             addressBookDB.CreateAddressBook();
             addressBookDB.InsertValues();
             addressBookDB.DisplayData();
-            //addressBookDB.EditContact();
+            /*
+            //Updating a contact
+            addressBookDB.EditContact();
+            */
             //addressBookDB.DeleteContact("Meena");
             //addressBookDB.DisplayData();
-            //addressBookDB.RetrieveContactsByCity("cochi");
-            //addressBookDB.RetrieveContactsByState("WB");
+            /*
+            //Retrieving Contacts By city and state
+            addressBookDB.RetrieveContactsByCity("cochi");
+            addressBookDB.RetrieveContactsByState("WB");
+            */
+            /*
+            //Getting Size by count of city and state
             addressBookDB.CountByCity();
             addressBookDB.CountByState();
+            */
+
+            //Retrieving Contacts Albhabetically
+            addressBookDB.RetrievAlbhabetically("cochi");
 
         }
     }
