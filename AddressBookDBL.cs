@@ -9,9 +9,10 @@ namespace AddressBookLinq
     class AddressBookDBL
     {
         public DataTable dataTable = new DataTable();
-
-        public void CreateAddressBook()
+        public string name;
+        public void CreateAddressBook(string name)
         {
+            this.name = name;
             dataTable.Columns.Add("FirstName", typeof(string));
             dataTable.Columns.Add("LastName", typeof(string));
             dataTable.Columns.Add("Address", typeof(string));

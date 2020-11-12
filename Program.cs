@@ -10,7 +10,7 @@ namespace AddressBookLinq
 
             var addressBookDB = new AddressBookDBL();
             //Creating And inserting values in Table
-            addressBookDB.CreateAddressBook();
+            addressBookDB.CreateAddressBook("MyAB");
             addressBookDB.InsertValues();
             addressBookDB.DisplayData();
             /*
