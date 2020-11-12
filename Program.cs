@@ -11,6 +11,10 @@ namespace AddressBookLinq
             var addressBookDB = new AddressBookDBL();
             addressBookDB.CreateAddressBook();
             addressBookDB.InsertValues();
+            addressBookDB.DisplayData();
+            addressBookDB.EditContact();
+            addressBookDB.DisplayData();
+
         }
     }
 }
