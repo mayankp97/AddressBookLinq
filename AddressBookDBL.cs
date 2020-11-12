@@ -21,16 +21,17 @@ namespace AddressBookLinq
             dataTable.Columns.Add("Zipcode", typeof(string));
             dataTable.Columns.Add("PhoneNumber", typeof(string));
             dataTable.Columns.Add("EmailID", typeof(string));
+            dataTable.Columns.Add("ABookType", typeof(string));
         }
 
         public void InsertValues()
         {
-            dataTable.Rows.Add("Mayank", "Purohit", "Near Heaven", "cochi", "kerela", "155545", "9865656565", "m@gmail.com");
-            dataTable.Rows.Add("Mahesh", "Purohit", "Near Hell", "chennai", "TN", "1658788", "95554545", "mp@gmail.com");
-            dataTable.Rows.Add("Manish", "Purohit", "Near chinatown", "bengaluru", "Karnataka", "165301", "4545454545", "ma@gmail.com");
-            dataTable.Rows.Add("Mukesh", "Purohit", "Near jawahar circle", "jodhpur", "Rajasthan", "6654554", "9845454545", "mu@gmail.com");
-            dataTable.Rows.Add("Meena", "Purohit", "Near kala bazar", "kolkata", "WB", "5454545", "7784845455", "m@gmail.com");
-            dataTable.Rows.Add("Minali", "Purohit", "Near lal bazar", "puri", "Orissa", "545454", "8876988998", "mi@gmail.com");
+            dataTable.Rows.Add("Mayank", "Purohit", "Near Heaven", "cochi", "kerela", "155545", "9865656565", "m@gmail.com","Formal");
+            dataTable.Rows.Add("Mahesh", "Purohit", "Near Hell", "chennai", "TN", "1658788", "95554545", "mp@gmail.com","Family");
+            dataTable.Rows.Add("Manish", "Purohit", "Near chinatown", "bengaluru", "Karnataka", "165301", "4545454545", "ma@gmail.com","Office");
+            dataTable.Rows.Add("Mukesh", "Purohit", "Near jawahar circle", "jodhpur", "Rajasthan", "6654554", "9845454545", "mu@gmail.com", "Office");
+            dataTable.Rows.Add("Meena", "Purohit", "Near kala bazar", "kolkata", "WB", "5454545", "7784845455", "m@gmail.com", "Office");
+            dataTable.Rows.Add("Minali", "Purohit", "Near lal bazar", "puri", "Orissa", "545454", "8876988998", "mi@gmail.com", "Office");
 
 
         }
@@ -132,6 +133,14 @@ namespace AddressBookLinq
                     Console.Write(row[col].ToString().PadRight(14));
                 }
                 Console.Write("\n");
+            }
+        }
+        public void CountByType()
+        {
+            var records = dataTable.AsEnumerable().GroupBy(x => x.Field<string>("ABookType")).Select(x => new { ABookType = x.Key, Count = x.Count() });
+            foreach (var row in records)
+            {
+                Console.WriteLine(row.ABookType.PadRight(18) + row.Count);
             }
         }
         public void DisplayData()

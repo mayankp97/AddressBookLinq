@@ -29,9 +29,13 @@ namespace AddressBookLinq
             addressBookDB.CountByCity();
             addressBookDB.CountByState();
             */
-
+            /*
             //Retrieving Contacts Albhabetically
             addressBookDB.RetrievAlbhabetically("cochi");
+            */
+
+            //Retrieving Count by Type
+            addressBookDB.CountByType();
 
         }
     }
